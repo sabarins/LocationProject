@@ -1,1 +1,14 @@
 Hello
+
+Since I don't like depending on odd third party things for this behavior (even though process.browser seems to come from Webpack), I think the preferred way to check is for presence of appContext.ctx.req like this:
+
+async getInitialProps (appContext) {
+
+    if (appContext.ctx.req) // server? 
+    {
+        //server stuff
+    }
+    else {
+        // client stuff
+    }
+}
